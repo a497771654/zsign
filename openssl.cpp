@@ -208,9 +208,9 @@ bool _GenerateCMS(X509 *scert, EVP_PKEY *spkey, const string &strCDHashData, con
 		return CMSError();
 	}
 
-    CMS_SignerInfo * si = CMS_add1_signer(cms, scert, spkey, EVP_sha256(), nFlags);
+    CMS_SignerInfo * si = CMS_add1_signer(cms, scert, spkey, EVP_sha1(), nFlags);
 //    CMS_add1_signer(cms, NULL, NULL, EVP_sha1(), nFlags);
-    CMS_add1_signer(cms, scert, spkey, EVP_sha256(), nFlags);
+//    CMS_add1_signer(cms, scert, spkey, EVP_sha256(), nFlags);
     if (!si) {
         return CMSError();
     }
